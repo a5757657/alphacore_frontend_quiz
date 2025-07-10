@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AlphaCore Frontend Quiz
 
-## Getting Started
+## 📁 專案結構
 
-First, run the development server:
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── page.tsx           # 登入頁面
+│   ├── table/             # 訂單表格頁面
+│   │   ├── page.tsx       # 主頁面
+│   │   ├── layout.tsx     # 佈局
+│   │   └── Result.tsx     # 表格結果組件
+│   └── layout.tsx         # 根佈局
+├── components/            # 可重用組件
+│   ├── CusPagination.tsx  # 自定義分頁組件
+│   └── Filter.tsx         # 篩選組件
+├── hooks/                 # 自定義 Hooks
+│   └── useGetOrders.ts    # 訂單資料獲取 Hook
+├── services/              # API 服務
+│   ├── apiClient.ts       # API 客戶端配置
+│   ├── fetcher.ts         # SWR fetcher
+│   └── login.ts           # 登入服務
+├── types/                 # TypeScript 類型定義
+│   ├── app/
+│   │   └── table.ts       # 表格相關類型
+│   └── components/
+│       └── filter.ts      # 篩選組件類型
+└── utils/                 # 工具函數
+    ├── formatters.ts      # 格式化工具
+    └── logout.ts          # 登出工具
+```
+
+## 🚀 快速開始
+
+### 環境需求
+
+- Node.js v20.12.1 或更高版本
+- npm, yarn, pnpm 或 bun
+
+### 安裝依賴
 
 ```bash
+# 使用 npm
+npm install
+
+# 使用 yarn
+yarn install
+
+# 使用 pnpm
+pnpm install
+
+# 使用 bun
+bun install
+```
+
+### 開發環境運行
+
+```bash
+# 使用 npm
 npm run dev
-# or
+
+# 使用 yarn
 yarn dev
-# or
+
+# 使用 pnpm
 pnpm dev
-# or
+
+# 使用 bun
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+開啟 [http://localhost:3000](http://localhost:3000) 在瀏覽器中查看結果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 生產環境建置
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 建置專案
+npm run build
 
-## Learn More
+# 啟動生產伺服器
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 可用的 Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - 啟動開發伺服器
+- `npm run build` - 建置生產版本
+- `npm run start` - 啟動生產伺服器
+- `npm run lint` - 執行 ESLint 檢查
+- `npm run format` - 使用 Prettier 格式化程式碼
+- `npm run format:check` - 檢查程式碼格式
+- `npm run ci` - 執行 CI 檢查 (格式檢查 + Lint + 建置)
