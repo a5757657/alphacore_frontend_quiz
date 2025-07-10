@@ -13,7 +13,9 @@ src/
 │   └── layout.tsx         # 根佈局
 ├── components/            # 可重用組件
 │   ├── CusPagination.tsx  # 自定義分頁組件
-│   └── Filter.tsx         # 篩選組件
+│   └── Filter.tsx         # 篩選器組件
+├── constants/             # 常數定義
+│   └── options.ts         # 選項常數
 ├── hooks/                 # 自定義 Hooks
 │   └── useGetOrders.ts    # 訂單資料獲取 Hook
 ├── services/              # API 服務
