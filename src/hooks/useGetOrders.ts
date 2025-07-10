@@ -3,11 +3,9 @@ import useSWR from "swr";
 
 import { fetcher } from "@/services/fetcher";
 
-export default function useOrder(
-  pageSetting: { page: number; size: number },
-  sortBy: string,
-  filter: any
-) {
+import { type FilterType, type PageSetting, type SortType } from "@/types/app/table";
+
+export default function useOrder(pageSetting: PageSetting, sortBy: SortType, filter: FilterType) {
   const searchParams = new URLSearchParams({
     size: pageSetting.size.toString(),
     page: pageSetting.page.toString(),

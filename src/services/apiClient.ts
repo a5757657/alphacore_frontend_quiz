@@ -36,15 +36,6 @@ export const apiClient = axios.create({
   }
 });
 
-// 動態設置 Token（登入後調用）
-export function setAuthToken(token: string) {
-  if (token) {
-    apiClient.defaults.headers.Authorization = `Bearer ${token}`;
-  } else {
-    delete apiClient.defaults.headers.Authorization;
-  }
-}
-
 apiClient.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("authToken");

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
@@ -29,6 +29,13 @@ export default function Home() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) {
+      router.push("/table");
+    }
+  }, [router]);
 
   const handleLogin = async (data: { username: string; password: string }) => {
     try {
